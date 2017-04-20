@@ -14,14 +14,14 @@
 /* ctext */
 
     .ctext{
-        h1, h2, h3, h4, h5, h6{line-height: 1.25;margin-bottom: 15px;font-weight: 700;}
+        h1, h2, h3, h4, h5, h6{line-height: 1.167;margin-bottom: 15px;font-weight: 700;}
         h1{font-size: 36px;}
-        h2{font-size: 32px;}
-        h3{font-size: 28px;}
+        h2{font-size: 60px; line-height: 1.167;}
+        h3{font-size: 30px; line-height: 1.5;}
         h4{font-size: 24px;}
         h5{font-size: 20px;}
         h6{font-size: 16px;}
-        p{margin-bottom: 10px;font-size: 14px;}
+
     }
 
 /* /ctext */
@@ -30,7 +30,7 @@
 *,*:before, *:after{box-sizing:border-box;outline:none;}
 *,body,html{-webkit-text-size-adjust: none;-webkit-appearance: none;max-height: 9001em;}
 html{height:100%;}
-body{min-height:100%;width:100%;min-width:320px;font-family:arial,sans-serif;background:#fff;color:#3d3d3d;position:relative;font-size: 16px;line-height: 1;
+body{min-height:100%;width:100%;min-width:320px;background:#fff;color:#000;position:relative;font-size: 18px; line-height: 1.389;
 
     /* styles for wp-admin panel */
 
@@ -57,20 +57,13 @@ img{vertical-align:bottom;border:0;max-width:100%;}
 
 }
 /* /adapted styles for wp-admin panel */
-
 /* /base styles */
-
 /* wraps styling*/
-
-.mbox{max-width:1024px;width:100%;margin:0 auto;position:relative;z-index:1;}
+.mbox{max-width:1140px;width:100%;margin:0 auto;position:relative;z-index:1; padding: 0 15px;}
 .mbox:after{content:"";clear:both;font-size:1px;line-height:1px;height:0;overflow:hidden;display:block;}
-
 /* /wraps styling*/
-
-
 .footer_placeholder{height: 200px;}
 .footer{position:absolute;bottom:0;left:0;width:100%;z-index:2;overflow:hidden;}
-
 input, textarea{
     &::-webkit-input-placeholder {color:#212121;}
     &:-moz-placeholder {color:#212121;opacity:1;}
@@ -79,7 +72,6 @@ input, textarea{
 }
 
 /*End Layout*/
-
 /*fonts*/
 @mixin font-face($style-name, $file:$style-name, $weight:normal, $style:normal) {
     $filepath: "/fonts/" + $file;
@@ -96,6 +88,77 @@ input, textarea{
 }
 
 //  example -> @include font-face('PFDinTextPro', 'PFDinTextPro-Bold', 700, italic);
-
-
 /*/fonts*/
+/*TEXT*/
+    h2{font-size: 60px; line-height: 1.167; color: #3b3273;}
+    h3{font-size: 30px; line-height: 1.5; font-weight: 300;
+        a{ text-decoration: none; position: relative; color: #00b95e;
+            &:before{content: ''; position: absolute; width: 100%; left: 0; bottom: 0px; height: 0px; border-bottom:1px dotted  #00b95e;}
+        }
+    }
+/*end TEXT*/
+.button{    background-image: -moz-linear-gradient(90deg, #067b47 13%, #42ea61 90%);    background-image: -webkit-linear-gradient(90deg, #067b47 13%, #42ea61 90%);    background-image: -ms-linear-gradient(90deg, #067b47 13%, #42ea61 90%);    padding: 6px;    display: inline-block;    border-radius: 10px;    text-decoration: none;
+    span{border-radius: 5px; background-size: 100%; background-position: 50% 0px; background-image: -moz-linear-gradient( 90deg, rgb(11,172,100) 13%,rgb(71,205,95) 90%); background-image: -webkit-linear-gradient( 90deg, rgb(11,172,100) 13%,rgb(71,205,95) 90%); background-image: -ms-linear-gradient( 90deg, rgb(11,172,100) 13%,rgb(71,205,95) 90%); display: flex; justify-content: center; align-items: center; font-size: 30.436px; font-family: "PFCentroSlabPro"; color: rgb(255, 255, 255); font-weight: bold; line-height: 0.821; text-shadow: 0px 1px 0px rgba(0, 185, 94, 0.004); width: 402px; height: 100px;    }
+    &:hover{
+            span{ background-image: -moz-linear-gradient( 90deg, rgb(71,205,95) 13%,rgb(11,172,100) 90%); background-image: -webkit-linear-gradient( 90deg, rgb(71,205,95) 13%,rgb(11,172,100) 90%); background-image: -ms-linear-gradient( 90deg, rgb(71,205,95) 13%,rgb(11,172,100) 90%);}
+    }
+}
+
+/*Header*/
+    header{ padding-top: 70px; width: 100%;}
+    .header{ width: 100%; top: 0; left: 0; right: 0; z-index: 100; position: fixed;
+        &:before{ position: absolute; content: ''; height: 3px; left: 0; top:100%; right: 0; box-shadow: 0px 5px 15px 0px rgba(59, 50, 115, 0.15); background-color: #3b3273; width: 100%;}
+        &:after{ position: absolute; content: ''; height: 3px; left: 0; top:100%; background-color: #00b95e; width: 30%;}
+        &__wraper{ background-color: #fff; position: relative; z-index: 200; width: 100%; display: flex; height: 67px; justify-content: space-between; align-items: center;}
+        &__left{ display: flex; justify-content: space-between; align-items: center; width: 816px;}
+        &__logo{}
+        &__nav{
+            ul{ display: flex; justify-content: space-between; align-items: center; list-style-type: none; padding: 0; margin: 0; width: 607px;}
+            a{ color: #3b3273; transition: all 200ms; text-decoration: none;
+                &:hover{ color: #00b95e;}
+            }
+        }
+        &__tel{
+            p{ margin: 0; font-size: 12px; font-weight: 300;}
+            a{ font-size: 18px; font-weight: 700; color: #3b3273; text-decoration: none;}
+        }
+    }
+    .butter{}
+/*END Header*/
+/*top block*/
+    .top-block{ background-image: url(../images/topbg.jpg); background-position: 50% top; background-repeat: no-repeat;
+        &__wrap{}
+        &__text{}
+        &__cols{ display: flex; justify-content: space-between; align-items: flex-start;}
+        &__item{ width: 260px;}
+    }
+/*END top block*/
+/*second*/
+    .second{
+        &__items{ display: flex; justify-content: space-around; align-items: flex-start; flex-wrap: wrap; }
+        &__item{ width: 300px; text-align: center; margin-bottom: 20px;}
+        &__img{ width: 150px; height: 150px; margin: 0 auto; display: block; background-color: #e5e5e5; position: relative; overflow: hidden;
+            img{ position: absolute; left:50%; top: 50%; transform: translate(-50%, -50%); max-width: none;}
+        }
+        &__txt{}
+    }
+/*END second*/
+/*video*/
+    .video{
+        &__tube{position: relative;  padding-bottom: 56.25%; /* 16:9 */  height: 0;
+            iframe{ position: absolute;  top: 0;  left: 0;  width: 100%; height: 100%;}
+        }
+    }
+/*END video*/
+/*third*/
+    .third{
+        &__tab{}
+        &__table{}
+        &__tr{ display: flex; justify-content:flex-start; align-items: stretch;
+            &:first-child{ border-bottom:1px solid  #e5e5e5;}
+        }
+        &__td{ display: flex; justify-content: flex-start; align-items: center;
+
+        }
+    }
+/*END third*/
