@@ -227,6 +227,107 @@ input, textarea{
     }
 /*END slider*/
 /*garage*/
+    .garage{
+        h2{ text-align: center;}
+        &__img{
+            img{ width: 100%;}
+        }
+        .toshow{ display: none;}
+        &__content{ position: relative; margin-bottom: 10px;}
+        &__slider{}
+        &__slide-wrap{padding: 0 5px;}
+        &__slide-hidden{ display: none;}
+        &__slide{ width: 120px; height: 90px; cursor: pointer; position: relative;
+            &:before{ position: absolute;content: ''; width: 100%; height: 100%; border:5px solid #00b95e; opacity: 0; transition: all 200ms;}
+            &:hover:before{ opacity: 1;}
+            &.active:before{ border-color:#473f7c; opacity: 1;}
+        }
+        &__right{ position: absolute; width: 320px; top: 0; right: 0; height: 100%;}
+        &__button{ padding-left: 24px;
 
+            span{ background-image: url(../images/arrow-l.png); width: 10px; height: 12px; display: inline-block; margin-right: 3px;}
+            a{ text-decoration: none; position: relative; color: #00b95e; font-size: 14px;
+                &:before{content: ''; position: absolute; width: 100%; left: 0; bottom: 0px; height: 0px; border-bottom:1px dotted  #00b95e;}
+                &:hover{color: #fff;
+                    &:before{ background-color: #fff;}
+                }
+            }
+            &.toshow{
+                span{ transform: rotate(90deg);}
+            }
+            &--down{
+                span{ transform: rotate(90deg);}
+            }
+        }
+        &__button-wrap{ background-color: rgba(59,56,115,0.8); height: 67px; display: flex; justify-content: flex-start; align-items: center;
+            &.active{
+                .toshow{ display: block;}
+                .tohide{ display: none;}
+            }
+        }
+        &__text-container{ height: calc(100% - 40px); overflow: hidden;padding: 5px 23px 0;}
+        &__text{ background-color: rgba(59,56,115,0.8); color: #fff; height: calc(100% - 67px); position: absolute; right: 0; bottom: 0;
+            h4{ margin: 0 0 9px;  }
+            p{ margin: 0 0 15px; }
+            ul{ list-style-type: none; margin: 0 0 31px; padding:0;
+                a{ text-decoration: none; position: relative; color: #fff;
+                    &:before{content: ''; position: absolute; width: 100%; left: 0; bottom: 0px; height: 0px; border-bottom:1px dotted  #fff;}
+                    &:hover{color: #fff;
+                        &:before{ background-color: #fff;}
+                    }
+                }
+            }
+            li{ margin-bottom: 5px;
+                i{ width: 22px; display: inline-block;}
+            }
+
+        }
+    }
 /*END garage*/
+/*constructor*/
+    .constructor{
+        h2{ text-align: center;}
+        &__content{ position: relative;}
+        &__banner{ border-radius: 20px; background-color: #fff;box-shadow: 0px 10px 20px 0px rgba(24, 22, 92, 0.2);max-width: 1000px;z-index: 99; text-align: center; width: 100%; position: relative; margin: 0 auto; padding: 28px 16px 69px;}
+        &__case{}
+        &__options{ display: flex; justify-content: flex-start; align-items: flex-start; flex-wrap: wrap; width: 410px;}
+        &__col{ width: 50%; padding-left: 10px; text-align: left; font-size: 14px; font-weight: 400;
+            h5{ margin: 0; font-size: 14px; padding-left: 10px;}
+            ul{ margin: 0; padding: 0; list-style-type: none;}
+            li{ padding-left: 10px;}
+            input[type=radio] + span{border: 1px solid rgb(235, 235, 235);  border-radius: 50%; width: 14px; height: 14px; display: inline-block; background-image: -moz-linear-gradient( 90deg, rgb(248,248,248) 0%, rgb(239,239,239) 100%);  background-image: -webkit-linear-gradient( 90deg, rgb(248,248,248) 0%, rgb(239,239,239) 100%); background-image: -ms-linear-gradient( 90deg, rgb(248,248,248) 0%, rgb(239,239,239) 100%); cursor: pointer; position: relative; vertical-align: middle; margin-right: 5px;
+                &:before{ width: 8px; height: 8px; border-radius: 50%; content: ''; position: absolute; top: 2px; left: 2px; background-color: #5b4fa5; opacity: 0;}
+            }
+            input[type=radio]:checked + span:before{ opacity: 1;}
+            input[type=checkbox] + span{border: 1px solid rgb(235, 235, 235);border-radius: 4px; background-image: -moz-linear-gradient( 90deg, rgb(248,248,248) 0%, rgb(239,239,239) 100%);  background-image: -webkit-linear-gradient( 90deg, rgb(248,248,248) 0%, rgb(239,239,239) 100%);  background-image: -ms-linear-gradient( 90deg, rgb(248,248,248) 0%, rgb(239,239,239) 100%); width: 14px; height: 14px; display: inline-block; position: relative; cursor: pointer; vertical-align: middle; margin-right: 5px;
+                &:before{ content: ''; position: absolute; top: 0; left: 0; background-image: url(../images/checked.png); width: 12px; height: 12px; opacity: 0}
 
+            }
+            input[type=checkbox]:checked + span:before{ opacity: 1;}
+        }
+        &__img{}
+        &__form{}
+        &__bg{height:calc(100% - 100px); top: 50px; left: 0; position: absolute; width: 100%; background-image: url(../images/callbg.jpg); background-position: 50%; background-size: cover;}
+    }
+    .colorpicker{
+        &__close{ width: 14px; height: 14px; display: block; position: absolute; right: 5px; top: 5px; cursor: pointer; display: none;
+            &:before,
+            &:after{ position: absolute; content: ''; width: 100%; height: 1px; background-color: #000; left: 50%; top: 50%; transform:translate(-50%, -50%) rotate(45deg);}
+            &:before{transform:translate(-50%, -50%) rotate(-45deg);}
+        }
+        &__ttl{border-bottom: 1px solid transparent; cursor: pointer;
+            span{border: 1px solid rgb(235, 235, 235);  border-radius: 50%; width: 14px; height: 14px; display: inline-block; vertical-align: middle; margin-right: 5px;}
+        }
+        &__list{ display: none; padding-top: 7px;
+            ul{ display: flex; justify-content: flex-start; align-items: flex-start; flex-wrap: wrap;}
+            li{ margin-right: 5px; display: inline-block; padding-left: 0;}
+        }
+        &>li{position: relative; z-index: 10; background-color: #fff;
+            &.active{box-shadow: 0 0 9px 2px rgba(0, 0, 0, 0.3);  border-radius: 6px; z-index: 300; position: absolute; width: 165px;  padding:5px 10px 0;
+                .colorpicker__ttl{border-bottom: 1px solid #e5e5e5;}
+                .colorpicker__list{ display: block;}
+                .colorpicker__close{ display: block;}
+            }
+        }
+    }
+/*END constructor*/
