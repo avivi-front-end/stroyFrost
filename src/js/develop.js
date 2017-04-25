@@ -92,7 +92,10 @@ function garSlide(){
     var slideText = act.find('.garage__slide-hidden').html();
     var img = act.find('.garage__slide').attr('data-img');
     text.html(slideText);
-    photo.html('<img src="'+img+'" alt="">');
+    photo.html('<img src="'+img+'" alt="" data-object-fit>');
+    setTimeout(function () {
+        checkScrollButton();
+    },300);
     slides.click(function () {
         slides.removeClass('active');
         $(this).addClass('active');
@@ -100,6 +103,52 @@ function garSlide(){
         var src = $(this).attr('data-img');
         photo.html('<img src="'+src+'" alt="">');
         text.html(thisText);
+        setTimeout(function () {
+            checkScrollButton();
+        },300)
+    });
+
+}
+function checkScrollButton() {
+    var screenHeight = $('.garage__text-container').height();
+    var text = $('.garage__text-container .garage__scroll-text');
+    var totalHeight = text.height();
+    if(screenHeight > totalHeight){
+        $('.scrolle-the-text').closest('div').hide();
+    }else{
+        $('.scrolle-the-text').closest('div').show()
+    }
+}
+function garageScrollText() {
+    var butt = $('.scrolle-the-text');
+    butt.click(function (e) {
+        e.preventDefault();
+        var screenHeight = $('.garage__text-container').height();
+        var text = $('.garage__text-container .garage__scroll-text')
+        var totalHeight = text.height();
+        var lastPosition = text.attr('data-last');
+        if(typeof lastPosition == 'undefined'){
+            text.attr('data-last', 0);
+            lastPosition = 0;
+        }
+        var target = parseInt(lastPosition) + screenHeight;
+        text.attr('data-last', target);
+        if($('.garage__text-container').scrollTop() + screenHeight < totalHeight ){
+            $('.garage__text-container').animate({scrollTop:target},500, function(){
+                if(totalHeight - $('.garage__text-container').scrollTop() < screenHeight ){
+                    butt.text('В начало кейса');
+                    butt.closest('.garage__button--down').addClass('up');
+                }
+            });
+
+
+        }else{
+            $('.garage__text-container').animate({scrollTop:0},500);
+            text.attr('data-last', 0);
+            butt.text('Читать дальше');
+            butt.closest('.garage__button--down').removeClass('up');
+        }
+
     });
 
 }
@@ -112,6 +161,115 @@ function closeColorpicker() {
         $(this).closest('li').addClass('active');
     });
 }
+function checkGate(){
+    $('input[name=size]').on('change', function(){
+       var val = parseInt($(this).val());
+       var it = $('.constructor__col .disabled-item');
+       if(val == 0){
+           it.css('display','block');
+       }else if(val == 2){
+           it.css('display','none');
+           $('input[name=roof]').eq(0).prop('checked','true');
+       }
+    });
+
+}
+function initConstructorView(){
+    var container = $('.constructor__img');
+    container.empty();
+    var params = {
+        size:parseInt($('input[name=size]:checked').val()),
+        roof:parseInt($('input[name=roof]:checked').val()),
+        colWall:$('input[name=wall-col]:checked').val(),
+        colRoof:$('input[name=roof-col]:checked').val(),
+        colElem:$('input[name=elem-col]:checked').val(),
+        colGate:$('input[name=gate-col]:checked').val()
+    }
+    var folder = params.size+params.roof;
+    var under = $(document.createElement('img'));
+    var gateImg = $(document.createElement('img'));
+    var elemImg = $(document.createElement('img'));
+    var roofImg = $(document.createElement('img'));
+    var wallImg = $(document.createElement('img'));
+    var over = $(document.createElement('img'));
+
+
+    under.attr('src','images/garage/'+folder+'/under.jpg');
+    container.append(under);
+    if(typeof params.colGate != 'undefined'){
+        gateImg.attr('src','images/garage/'+folder+'/gate/'+params.colGate);
+        container.append(gateImg);
+    }
+    if(typeof params.colElem != 'undefined'){
+        elemImg.attr('src','images/garage/'+folder+'/panels/'+params.colElem);
+        container.append(elemImg);
+    }
+    if(typeof params.colRoof != 'undefined'){
+        roofImg.attr('src','images/garage/'+folder+'/roof/'+params.colRoof);
+        container.append(roofImg);
+    }
+    if(typeof params.colWall != 'undefined'){
+        wallImg.attr('src','images/garage/'+folder+'/wall/'+params.colWall);
+        container.append(wallImg);
+    }
+    over.attr('src','images/garage/'+folder+'/over.png');
+    container.append(over);
+
+
+
+
+    console.log(params);
+}
+function reinitConstructorsEvents(){
+    $('input[name=size]').on('change', function(){initConstructorView()});
+    $('input[name=roof]').on('change', function(){initConstructorView()});
+}
+function colorPickInputEvent(){
+    $('input[name=wall-col]').on('change', function(){
+        var color = $('input[name=wall-col]:checked + span').attr('style');
+        $(this).closest('li.active').find('.colorpicker__ttl span').attr('style', color);
+        initConstructorView();
+    });
+    $('input[name=gate-col]').on('change', function(){
+        var color = $('input[name=gate-col]:checked + span').attr('style');
+        $(this).closest('li.active').find('.colorpicker__ttl span').attr('style', color);
+        initConstructorView();
+    });
+    $('input[name=roof-col]').on('change', function(){
+        var color = $('input[name=roof-col]:checked + span').attr('style');
+        $(this).closest('li.active').find('.colorpicker__ttl span').attr('style', color);
+        initConstructorView();
+    });
+    $('input[name=elem-col]').on('change', function(){
+        var color = $('input[name=elem-col]:checked + span').attr('style');
+        $(this).closest('li.active').find('.colorpicker__ttl span').attr('style', color);
+        initConstructorView();
+    });
+}
+function accordeon(){
+    $('.accordeon__dropdown').eq(0).stop().slideDown();
+    $('.accordeon__left h5').click(function () {
+        if($(this).hasClass('active')){
+            $(this).next('.accordeon__dropdown').stop().slideUp();
+        }else{
+            $('.accordeon__left h5').removeClass('active');
+            $('.accordeon__dropdown').stop().slideUp();
+            $(this).addClass('active');
+            $(this).next('.accordeon__dropdown').stop().slideDown();
+        }
+    });
+}
+function feedbacks(){
+   var slider = $('.feedbacks__slider');
+    slider.slick({
+        dots:false,
+        arrows:true,
+        infinity:true,
+        speed: 300,
+        slidesToShow: 3,
+        centerMode: true
+    });
+}
 $(document).ready(function () {
     tabsCheck();
     toggleActive();
@@ -120,4 +278,11 @@ $(document).ready(function () {
     showHideGarage();
     garSlide();
     closeColorpicker();
+    checkGate();
+    initConstructorView();
+    reinitConstructorsEvents();
+    colorPickInputEvent();
+    garageScrollText();
+    accordeon();
+    feedbacks();
 })

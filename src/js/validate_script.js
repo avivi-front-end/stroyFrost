@@ -142,7 +142,7 @@ function popNext(popupId){
     timer = setTimeout(function(){
         $('form').trigger("reset");
         $.fancybox.close(popupId);
-    },2000);
+    },3000);
 }
 /*маска на инпуте*/
 function Maskedinput(){
@@ -151,6 +151,7 @@ function Maskedinput(){
     }
 }
 $(document).ready(function(){
-   validate('#call-popup .contact-form', {submitFunction:validationCall});
+   validate('.constructor-validate', {submitFunction:validationCall});
+   validate('.contact-form', {submitFunction:validationCall});
    Maskedinput();
 });

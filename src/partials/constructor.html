@@ -1,8 +1,8 @@
-<section class="constructor">
+<section class="constructor" id="constructor">
     <div class="mbox"><h2>Конструктор гаража</h2></div>
     <div class="constructor__content">
         <div class="constructor__banner">
-            <form action="ajax.php">
+            <form action="ajax.php" class="constructor-validate">
                 <div class="constructor__case">
                     <div class="constructor__options">
                         <div class="constructor__col">
@@ -10,14 +10,16 @@
                             <ul>
                                 <li><label><input type="radio" name="size" checked="checked" value="0"><span></span>Один (одни ворота)</label></li>
                                 <li><label><input type="radio" name="size" value="2"><span></span> Два (двое ворот)</label></li>
+                                <li>&nbsp;</li>
                             </ul>
                         </div>
                         <div class="constructor__col">
                             <h5>Тип кровли</h5>
                             <ul>
-                                <li><label><input type="radio" name="roof" checked="checked" value="1"><span></span>Скат набок</label></li>
-                                <li><label><input type="radio" name="roof" value="2"><span></span>Скат назад</label></li>
+
+                                <li><label><input type="radio" name="roof" value="2" checked="checked"><span></span>Скат назад</label></li>
                                 <li><label><input type="radio" name="roof" value="3"><span></span>Двускатная</label></li>
+                                <li class="disabled-item"><label><input type="radio" name="roof"  value="1"><span></span>Скат набок</label></li>
                             </ul>
                         </div>
                         <div class="constructor__col">
@@ -33,26 +35,26 @@
                         <div class="constructor__col">
                             <h5>Выберите цвет</h5>
                             <ul class="colorpicker">
-                                <li class="active">
+                                <li>
                                     <div class="colorpicker__close"></div>
                                     <div class="colorpicker__ttl"><span></span>Стены</div>
                                     <div class="colorpicker__list">
                                         <ul>
-                                            <li><label><input type="radio" name="wall-col" value=""><span style="background: #e4d1a1;"></span></label></li>
-                                            <li><label><input type="radio" name="wall-col" value=""><span style="background: #ecdfbd;"></span></label></li>
-                                            <li><label><input type="radio" name="wall-col" value=""><span style="background: #f8e039"></span></label></li>
-                                            <li><label><input type="radio" name="wall-col" value=""><span style="background: #a4192c"></span></label></li>
-                                            <li><label><input type="radio" name="wall-col" value=""><span style="background: #6a1a24"></span></label></li>
-                                            <li><label><input type="radio" name="wall-col" value=""><span style="background: #7f342c"></span></label></li>
-                                            <li><label><input type="radio" name="wall-col" value=""><span style="background: #902628"></span></label></li>
-                                            <li><label><input type="radio" name="wall-col" value=""><span style="background: #00336a"></span></label></li>
-                                            <li><label><input type="radio" name="wall-col" value=""><span style="background: #004d11"></span></label></li>
-                                            <li><label><input type="radio" name="wall-col" value=""><span style="background: #001f11"></span></label></li>
-                                            <li><label><input type="radio" name="wall-col" value=""><span style="background: #707979"></span></label></li>
-                                            <li><label><input type="radio" name="wall-col" value=""><span style="background: #35130a"></span></label></li>
-                                            <li><label><input type="radio" name="wall-col" value=""><span style="background: #bfcabc"></span></label></li>
-                                            <li><label><input type="radio" name="wall-col" value=""><span style="background: #fff"></span></label></li>
-                                            <li><label><input type="radio" name="wall-col" value=""><span style="background: #b7b4b5"></span></label></li>
+                                            <li><label><input type="radio" name="wall-col" value="RAL1014.png"><span style="background: #e4d1a1;"></span></label></li>
+                                            <li><label><input type="radio" name="wall-col" value="RAL1015.png"><span style="background: #ecdfbd;"></span></label></li>
+                                            <li><label><input type="radio" name="wall-col" value="RAL1018.png"><span style="background: #f8e039"></span></label></li>
+                                            <li><label><input type="radio" name="wall-col" value="RAL3003.png"><span style="background: #a4192c"></span></label></li>
+                                            <li><label><input type="radio" name="wall-col" value="RAL3005.png"><span style="background: #6a1a24"></span></label></li>
+                                            <li><label><input type="radio" name="wall-col" value="RAL3009.png"><span style="background: #7f342c"></span></label></li>
+                                            <li><label><input type="radio" name="wall-col" value="RAL3011.png"><span style="background: #902628"></span></label></li>
+                                            <li><label><input type="radio" name="wall-col" value="RAL5005.png"><span style="background: #00336a"></span></label></li>
+                                            <li><label><input type="radio" name="wall-col" value="RAL6002.png"><span style="background: #004d11"></span></label></li>
+                                            <li><label><input type="radio" name="wall-col" value="RAL6005.png"><span style="background: #001f11"></span></label></li>
+                                            <li><label><input type="radio" name="wall-col" value="RAL7004.png"><span style="background: #707979"></span></label></li>
+                                            <li><label><input type="radio" name="wall-col" value="RAL8017.png"><span style="background: #35130a"></span></label></li>
+                                            <li><label><input type="radio" name="wall-col" value="RAL9002.png"><span style="background: #bfcabc"></span></label></li>
+                                            <li><label><input type="radio" name="wall-col" value="RAL9003.png"><span style="background: #fff"></span></label></li>
+                                            <li><label><input type="radio" name="wall-col" value="RAL9006.png"><span style="background: #b7b4b5"></span></label></li>
                                         </ul>
                                     </div>
                                 </li>
@@ -61,21 +63,21 @@
                                     <div class="colorpicker__ttl"><span></span>Кровля</div>
                                     <div class="colorpicker__list">
                                         <ul>
-                                            <li><label><input type="radio" name="roof-col" value=""><span style="background: #e4d1a1;"></span></label></li>
-                                            <li><label><input type="radio" name="roof-col" value=""><span style="background: #ecdfbd;"></span></label></li>
-                                            <li><label><input type="radio" name="roof-col" value=""><span style="background: #f8e039"></span></label></li>
-                                            <li><label><input type="radio" name="roof-col" value=""><span style="background: #a4192c"></span></label></li>
-                                            <li><label><input type="radio" name="roof-col" value=""><span style="background: #6a1a24"></span></label></li>
-                                            <li><label><input type="radio" name="roof-col" value=""><span style="background: #7f342c"></span></label></li>
-                                            <li><label><input type="radio" name="roof-col" value=""><span style="background: #902628"></span></label></li>
-                                            <li><label><input type="radio" name="roof-col" value=""><span style="background: #00336a"></span></label></li>
-                                            <li><label><input type="radio" name="roof-col" value=""><span style="background: #004d11"></span></label></li>
-                                            <li><label><input type="radio" name="roof-col" value=""><span style="background: #001f11"></span></label></li>
-                                            <li><label><input type="radio" name="roof-col" value=""><span style="background: #707979"></span></label></li>
-                                            <li><label><input type="radio" name="roof-col" value=""><span style="background: #35130a"></span></label></li>
-                                            <li><label><input type="radio" name="roof-col" value=""><span style="background: #bfcabc"></span></label></li>
-                                            <li><label><input type="radio" name="roof-col" value=""><span style="background: #fff"></span></label></li>
-                                            <li><label><input type="radio" name="roof-col" value=""><span style="background: #b7b4b5"></span></label></li>
+                                            <li><label><input type="radio" name="roof-col" value="RAL1014.png"><span style="background: #e4d1a1;"></span></label></li>
+                                            <li><label><input type="radio" name="roof-col" value="RAL1015.png"><span style="background: #ecdfbd;"></span></label></li>
+                                            <li><label><input type="radio" name="roof-col" value="RAL1018.png"><span style="background: #f8e039"></span></label></li>
+                                            <li><label><input type="radio" name="roof-col" value="RAL3003.png"><span style="background: #a4192c"></span></label></li>
+                                            <li><label><input type="radio" name="roof-col" value="RAL3005.png"><span style="background: #6a1a24"></span></label></li>
+                                            <li><label><input type="radio" name="roof-col" value="RAL3009.png"><span style="background: #7f342c"></span></label></li>
+                                            <li><label><input type="radio" name="roof-col" value="RAL3011.png"><span style="background: #902628"></span></label></li>
+                                            <li><label><input type="radio" name="roof-col" value="RAL5005.png"><span style="background: #00336a"></span></label></li>
+                                            <li><label><input type="radio" name="roof-col" value="RAL6002.png"><span style="background: #004d11"></span></label></li>
+                                            <li><label><input type="radio" name="roof-col" value="RAL6005.png"><span style="background: #001f11"></span></label></li>
+                                            <li><label><input type="radio" name="roof-col" value="RAL7004.png"><span style="background: #707979"></span></label></li>
+                                            <li><label><input type="radio" name="roof-col" value="RAL8017.png"><span style="background: #35130a"></span></label></li>
+                                            <li><label><input type="radio" name="roof-col" value="RAL9002.png"><span style="background: #bfcabc"></span></label></li>
+                                            <li><label><input type="radio" name="roof-col" value="RAL9003.png"><span style="background: #fff"></span></label></li>
+                                            <li><label><input type="radio" name="roof-col" value="RAL9006.png"><span style="background: #b7b4b5"></span></label></li>
                                         </ul>
                                     </div>
                                 </li>
@@ -84,21 +86,21 @@
                                     <div class="colorpicker__ttl"><span></span>Элементы</div>
                                     <div class="colorpicker__list">
                                         <ul>
-                                            <li><label><input type="radio" name="elem-col" value=""><span style="background: #e4d1a1;"></span></label></li>
-                                            <li><label><input type="radio" name="elem-col" value=""><span style="background: #ecdfbd;"></span></label></li>
-                                            <li><label><input type="radio" name="elem-col" value=""><span style="background: #f8e039"></span></label></li>
-                                            <li><label><input type="radio" name="elem-col" value=""><span style="background: #a4192c"></span></label></li>
-                                            <li><label><input type="radio" name="elem-col" value=""><span style="background: #6a1a24"></span></label></li>
-                                            <li><label><input type="radio" name="elem-col" value=""><span style="background: #7f342c"></span></label></li>
-                                            <li><label><input type="radio" name="elem-col" value=""><span style="background: #902628"></span></label></li>
-                                            <li><label><input type="radio" name="elem-col" value=""><span style="background: #00336a"></span></label></li>
-                                            <li><label><input type="radio" name="elem-col" value=""><span style="background: #004d11"></span></label></li>
-                                            <li><label><input type="radio" name="elem-col" value=""><span style="background: #001f11"></span></label></li>
-                                            <li><label><input type="radio" name="elem-col" value=""><span style="background: #707979"></span></label></li>
-                                            <li><label><input type="radio" name="elem-col" value=""><span style="background: #35130a"></span></label></li>
-                                            <li><label><input type="radio" name="elem-col" value=""><span style="background: #bfcabc"></span></label></li>
-                                            <li><label><input type="radio" name="elem-col" value=""><span style="background: #fff"></span></label></li>
-                                            <li><label><input type="radio" name="elem-col" value=""><span style="background: #b7b4b5"></span></label></li>
+                                            <li><label><input type="radio" name="elem-col" value="RAL1014.png"><span style="background: #e4d1a1;"></span></label></li>
+                                            <li><label><input type="radio" name="elem-col" value="RAL1015.png"><span style="background: #ecdfbd;"></span></label></li>
+                                            <li><label><input type="radio" name="elem-col" value="RAL1018.png"><span style="background: #f8e039"></span></label></li>
+                                            <li><label><input type="radio" name="elem-col" value="RAL3003.png"><span style="background: #a4192c"></span></label></li>
+                                            <li><label><input type="radio" name="elem-col" value="RAL3005.png"><span style="background: #6a1a24"></span></label></li>
+                                            <li><label><input type="radio" name="elem-col" value="RAL3009.png"><span style="background: #7f342c"></span></label></li>
+                                            <li><label><input type="radio" name="elem-col" value="RAL3011.png"><span style="background: #902628"></span></label></li>
+                                            <li><label><input type="radio" name="elem-col" value="RAL5005.png"><span style="background: #00336a"></span></label></li>
+                                            <li><label><input type="radio" name="elem-col" value="RAL6002.png"><span style="background: #004d11"></span></label></li>
+                                            <li><label><input type="radio" name="elem-col" value="RAL6005.png"><span style="background: #001f11"></span></label></li>
+                                            <li><label><input type="radio" name="elem-col" value="RAL7004.png"><span style="background: #707979"></span></label></li>
+                                            <li><label><input type="radio" name="elem-col" value="RAL8017.png"><span style="background: #35130a"></span></label></li>
+                                            <li><label><input type="radio" name="elem-col" value="RAL9002.png"><span style="background: #bfcabc"></span></label></li>
+                                            <li><label><input type="radio" name="elem-col" value="RAL9003.png"><span style="background: #fff"></span></label></li>
+                                            <li><label><input type="radio" name="elem-col" value="RAL9006.png"><span style="background: #b7b4b5"></span></label></li>
                                         </ul>
                                     </div>
                                 </li>
@@ -107,21 +109,14 @@
                                     <div class="colorpicker__ttl"><span></span>Ворота</div>
                                     <div class="colorpicker__list">
                                         <ul>
-                                            <li><label><input type="radio" name="gate-col" value=""><span style="background: #e4d1a1;"></span></label></li>
-                                            <li><label><input type="radio" name="gate-col" value=""><span style="background: #ecdfbd;"></span></label></li>
-                                            <li><label><input type="radio" name="gate-col" value=""><span style="background: #f8e039"></span></label></li>
-                                            <li><label><input type="radio" name="gate-col" value=""><span style="background: #a4192c"></span></label></li>
-                                            <li><label><input type="radio" name="gate-col" value=""><span style="background: #6a1a24"></span></label></li>
-                                            <li><label><input type="radio" name="gate-col" value=""><span style="background: #7f342c"></span></label></li>
-                                            <li><label><input type="radio" name="gate-col" value=""><span style="background: #902628"></span></label></li>
-                                            <li><label><input type="radio" name="gate-col" value=""><span style="background: #00336a"></span></label></li>
-                                            <li><label><input type="radio" name="gate-col" value=""><span style="background: #004d11"></span></label></li>
-                                            <li><label><input type="radio" name="gate-col" value=""><span style="background: #001f11"></span></label></li>
-                                            <li><label><input type="radio" name="gate-col" value=""><span style="background: #707979"></span></label></li>
-                                            <li><label><input type="radio" name="gate-col" value=""><span style="background: #35130a"></span></label></li>
-                                            <li><label><input type="radio" name="gate-col" value=""><span style="background: #bfcabc"></span></label></li>
-                                            <li><label><input type="radio" name="gate-col" value=""><span style="background: #fff"></span></label></li>
-                                            <li><label><input type="radio" name="gate-col" value=""><span style="background: #b7b4b5"></span></label></li>
+                                            <li><label><input type="radio" name="gate-col" value="RAL1014.png"><span style="background: #e4d1a1;"></span></label></li>
+                                            <li><label><input type="radio" name="gate-col" value="RAL6002.png"><span style="background: #004d11"></span></label></li>
+                                            <li><label><input type="radio" name="gate-col" value="RAL7004.png"><span style="background: #707979"></span></label></li>
+                                            <li><label><input type="radio" name="gate-col" value="RAL8017.png"><span style="background: #35130a"></span></label></li>
+                                            <li><label><input type="radio" name="gate-col" value="RAL9006.png"><span style="background: #b7b4b5"></span></label></li>
+                                            <li><label><input type="radio" name="gate-col" value="RAL3005.png"><span style="background: #6a1a24"></span></label></li>
+                                            <li><label><input type="radio" name="gate-col" value="RAL5005.png"><span style="background: #00336a"></span></label></li>
+
                                         </ul>
                                     </div>
                                 </li>
@@ -130,7 +125,30 @@
                     </div>
                     <div class="constructor__img"></div>
                 </div>
-                <div class="constructor__form"></div>
+                <div class="constructor__form">
+                    <div class="constructor__left">
+                        <h4>Рассчитать стоимость</h4>
+                        <p> Бесплатно приедем к вам на объект,
+                            сделаем точный замер и предложим
+                            лучшие варианты постройки гаража</p>
+                        <button class="button"><span>Рассчитать</span></button>
+                    </div>
+                    <div class="constructor__right">
+                        <div class="form_row">
+                            <div class="form_input form_twocol">
+                                <input type="text" name="contact_name" required="required" value="" placeholder="Ваше Имя">
+                            </div>
+                            <div class="form_input form_twocol">
+                                <input type="text" name="contact_tel" value="" required="required" placeholder="Ваш номер" class="tel-mask">
+                            </div>
+                        </div>
+                        <div class="form_row">
+                            <div class="form_input">
+                                <textarea name=""  placeholder="Ваш комментарий"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </form>
         </div>
         <div class="constructor__bg"></div>

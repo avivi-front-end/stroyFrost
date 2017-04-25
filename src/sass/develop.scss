@@ -229,8 +229,8 @@ input, textarea{
 /*garage*/
     .garage{
         h2{ text-align: center;}
-        &__img{
-            img{ width: 100%;}
+        &__img{ height: 700px; overflow: hidden;
+            img{ width: 100%; object-fit: cover; height: 100%;}
         }
         .toshow{ display: none;}
         &__content{ position: relative; margin-bottom: 10px;}
@@ -257,6 +257,9 @@ input, textarea{
             }
             &--down{
                 span{ transform: rotate(90deg);}
+                &.up{
+                    span{ transform: rotate(-90deg);}
+                }
             }
         }
         &__button-wrap{ background-color: rgba(59,56,115,0.8); height: 67px; display: flex; justify-content: flex-start; align-items: center;
@@ -286,15 +289,18 @@ input, textarea{
 /*END garage*/
 /*constructor*/
     .constructor{
-        h2{ text-align: center;}
+        label{ cursor: pointer;
+            &:hover{color:#00b95e;}
+        }
+        h2{ text-align: center; margin-top: 121px;}
         &__content{ position: relative;}
-        &__banner{ border-radius: 20px; background-color: #fff;box-shadow: 0px 10px 20px 0px rgba(24, 22, 92, 0.2);max-width: 1000px;z-index: 99; text-align: center; width: 100%; position: relative; margin: 0 auto; padding: 28px 16px 69px;}
-        &__case{}
-        &__options{ display: flex; justify-content: flex-start; align-items: flex-start; flex-wrap: wrap; width: 410px;}
-        &__col{ width: 50%; padding-left: 10px; text-align: left; font-size: 14px; font-weight: 400;
-            h5{ margin: 0; font-size: 14px; padding-left: 10px;}
+        &__banner{ border-radius: 20px; background-color: #fff;box-shadow: 0px 10px 20px 0px rgba(24, 22, 92, 0.2);max-width: 1000px;z-index: 99; text-align: center; width: 100%; position: relative; margin: 0 auto; padding: 28px 0 0;}
+        &__case{  position: relative; display: flex; justify-content: flex-start; align-items: flex-start; padding: 0 30px 100px;}
+        &__options{ display: flex; justify-content: flex-start; align-items: flex-start; flex-wrap: wrap; width: 410px; padding-top: 44px;}
+        &__col{ width: 50%; padding-left: 10px; text-align: left; font-size: 14px; font-weight: 400; margin-bottom: 24px;
+            h5{ margin: 0 0 5px; font-size: 14px; padding-left: 10px;}
             ul{ margin: 0; padding: 0; list-style-type: none;}
-            li{ padding-left: 10px;}
+            li{ padding-left: 10px; margin-bottom: 6px;}
             input[type=radio] + span{border: 1px solid rgb(235, 235, 235);  border-radius: 50%; width: 14px; height: 14px; display: inline-block; background-image: -moz-linear-gradient( 90deg, rgb(248,248,248) 0%, rgb(239,239,239) 100%);  background-image: -webkit-linear-gradient( 90deg, rgb(248,248,248) 0%, rgb(239,239,239) 100%); background-image: -ms-linear-gradient( 90deg, rgb(248,248,248) 0%, rgb(239,239,239) 100%); cursor: pointer; position: relative; vertical-align: middle; margin-right: 5px;
                 &:before{ width: 8px; height: 8px; border-radius: 50%; content: ''; position: absolute; top: 2px; left: 2px; background-color: #5b4fa5; opacity: 0;}
             }
@@ -305,9 +311,19 @@ input, textarea{
             }
             input[type=checkbox]:checked + span:before{ opacity: 1;}
         }
-        &__img{}
-        &__form{}
-        &__bg{height:calc(100% - 100px); top: 50px; left: 0; position: absolute; width: 100%; background-image: url(../images/callbg.jpg); background-position: 50%; background-size: cover;}
+        &__img{width: calc(100% - 410px); position: relative;
+            img:not(:first-child){ position: absolute; top: 0; left: 0; right: 0; bottom: 0;}
+        }
+        &__form{ display: flex; justify-content: space-between; align-items: flex-start; background-color: #fcfcfe; width: 100%;  padding: 33px 40px 35px 50px;}
+        &__left{ width:371px; text-align: left;
+            h4{ margin: 0 0 5px; font-size: 30px;}
+            p{ margin: 0 0 4px;}
+            .button{ margin-top: 20px;
+                span{ width: 312px; height: 80px;}
+            }
+        }
+        &__right{ width: 520px; padding-top: 17px;}
+        &__bg{height: calc(100% - 238px); top: 108px; left: 0; position: absolute; width: 100%; background-image: url(../images/callbg.jpg); background-position: 50%; background-size: cover;}
     }
     .colorpicker{
         &__close{ width: 14px; height: 14px; display: block; position: absolute; right: 5px; top: 5px; cursor: pointer; display: none;
@@ -317,6 +333,7 @@ input, textarea{
         }
         &__ttl{border-bottom: 1px solid transparent; cursor: pointer;
             span{border: 1px solid rgb(235, 235, 235);  border-radius: 50%; width: 14px; height: 14px; display: inline-block; vertical-align: middle; margin-right: 5px;}
+            &:hover{color:#00b95e;}
         }
         &__list{ display: none; padding-top: 7px;
             ul{ display: flex; justify-content: flex-start; align-items: flex-start; flex-wrap: wrap;}
@@ -330,4 +347,94 @@ input, textarea{
             }
         }
     }
+    .contact-form-title{
+        h5{ font-size: 30px;}
+    }
+    .contact-form-item{
+        .button span{ width: 100%; height: 60px; padding: 0 20px;}
+    }
+    .form_row{ width: 100%; display: flex; justify-content: flex-start; align-items: center;}
+
+    .form_input{padding: 0 10px; width: 100%; margin-bottom: 19px; position: relative;
+        &.form_twocol{ width: 50%;}
+        input{border: 1px solid  rgb(235, 235, 235); border-radius: 5px; background-image: -moz-linear-gradient( 90deg, rgb(248,248,248) 0%, rgb(239,239,239) 100%); background-image: -webkit-linear-gradient( 90deg, rgb(248,248,248) 0%, rgb(239,239,239) 100%); background-image: -ms-linear-gradient( 90deg, rgb(248,248,248) 0%, rgb(239,239,239) 100%); height: 40px; line-height: 40px; width: 100%; padding-left: 12px;
+            &.error{border-color: red;}
+        }
+        textarea{border: 1px solid  rgb(235, 235, 235); border-radius: 5px; background-image: -moz-linear-gradient( 90deg, rgb(248,248,248) 0%, rgb(239,239,239) 100%); background-image: -webkit-linear-gradient( 90deg, rgb(248,248,248) 0%, rgb(239,239,239) 100%); background-image: -ms-linear-gradient( 90deg, rgb(248,248,248) 0%, rgb(239,239,239) 100%);  width: 100%; resize: none; min-height: 160px; padding: 7px 11px;}
+    }
+    .errorText{ position: absolute; top: 100%; left: 20px; color:red; font-size: 12px;}
 /*END constructor*/
+/*build*/
+    .build{ text-align: center;
+        h2{margin: 125px 0 0;}
+        h3{ margin-top: 12px;}
+        &__content{ display: flex; justify-content: space-between; align-items: flex-start; padding-top: 40px; }
+        &__item{ text-align: left; width: 230px; margin-bottom: 29px;}
+        &__img{ width: 160px; height: 140px; position: relative; background-color: #e5e5e5; display: inline-block;}
+        &__txt{
+            h5{margin: 9px 0 7px;font-size: 18px;}
+            p{ margin: 0;}
+        }
+    }
+/*END build*/
+/*accordeon*/
+    .accordeon{
+        h2{ margin: 117px 0 43px;}
+        &__wrap{ display: flex; justify-content:space-between; align-items: flex-start;}
+        &__left{ width: 815px; padding-right: 15px;
+            ul{ margin: 0; padding: 0; list-style-type: none;}
+            li{ margin-bottom: 15px;}
+            h5{ font-size: 18px; font-weight: 500; color: #3b3273; cursor: pointer; margin: 0;
+                &.active,
+                &:hover{color: #00b95e;}
+            }
+        }
+        &__dropdown{ display: none; font-weight: 300;
+            p{ margin: 0 0 15px;}
+        }
+        &__right{ width: 250px;}
+        &__info{ margin: 4px 0 50px;
+            p{ margin: 0 0 -6px; font-weight: 400; font-size: 14px;
+                &:first-child{ font-size:30px; font-weight: 700;}
+            }
+            b{ font-size: 60px;}
+        }
+        &__form{ background-color: #f6f5ff; text-align: left; padding: 40px 19px 10px;
+            h5{ margin:11px 0; font-size: 18px;}
+            p{ margin: 0;}
+            i{ font-style: italic; font-weight: 300;}
+            form{ padding: 18px 0 10px;}
+            label{ display: flex; justify-content: flex-start; align-items: center; margin-bottom: 10px;
+                img{ margin-right: 5px;}
+            }
+            input{border:none; border-bottom:1px solid #ceced6; background-color: transparent; font-size: 12px; color: #ceced6; height: 22px;
+                &::-webkit-input-placeholder { font-size: 12px; color: #ceced6; font-style: italic; font-family:'UBUNTU'; font-weight: 300;}
+                &:-moz-placeholder { font-size: 12px; color: #ceced6; font-style: italic; font-family:'UBUNTU'; font-weight: 300;}
+                &::-moz-placeholder { font-size: 12px; color: #ceced6; font-style: italic; font-family:'UBUNTU'; font-weight: 300;}
+                &:-ms-input-placeholder { font-size: 12px; color: #ceced6; font-style: italic; font-family:'UBUNTU'; font-weight: 300;}
+            }
+            label{}
+            button{ background-color: transparent; border:none; padding: 0; margin: 17px 0 0;
+                span{ border-width: 3px;  border-color: rgb(0, 185, 94); border-style: solid; width: 160px; height: 50px; color: #00b95e; display: flex; justify-content: center; align-items: center; font-size: 18px; font-weight: 700; border-radius: 5px;}
+            }
+        }
+    }
+/*END accordeon*/
+/*feedbacks*/
+    .feedbacks{
+        h2{ text-align: center;}
+        &__slider{}
+        &__slide-wrap{ position: relative;
+            &.slick-current{ z-index: 200;
+                .feedbacks__slide{width: 584px; padding-top: 0;}
+                .feedbacks__txt{ display: block;}
+            }
+        }
+        &__slide{ width: 480px; margin: 0 auto; padding-top: 30px;}
+        &__video{position: relative;  padding-bottom: 56.25%; /* 16:9 */  height: 0;
+            iframe{ position: absolute;  top: 0;  left: 0;  width: 100%; height: 100%;}
+        }
+        &__txt{ text-align: center; display: none;}
+
+    }
+/*END feedbacks*/
