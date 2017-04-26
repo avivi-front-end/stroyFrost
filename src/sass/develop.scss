@@ -225,6 +225,27 @@ input, textarea{
             }
         }
     }
+    .dotted{ margin-bottom: 32px;
+        &_row{display: flex; justify-content: space-between; align-items: stretch; margin-bottom: 6px;}
+        &_left{ width: 170px; position: relative;
+            span{ background-color: #fff;}
+            &:before{ border-bottom:1px dotted #e5e5e5; content: ''; position: absolute; width: 100%; height: 0; bottom: 2px; left: 0; z-index: -1;}
+        }
+        &_right{ display: flex; justify-content: flex-start; align-items: flex-end; width: 150px;}
+    }
+    .techno{ max-width:1130px; width: 100%; margin: 0 auto; padding: 0 10px;
+        &__wrap{}
+        &__wrap{}
+        &__slide{ display: flex; justify-content: space-between; align-items: flex-start; font-weight: 400; font-size: 14px;  text-align: left;
+            ul{ margin: 0 0 32px;padding: 0 0 0 17px;}
+            p{ margin: 0 0 4px;}
+            li{ margin-bottom: 6px;}
+
+        }
+        &__col{ width: 325px; padding: 0 5px;
+            &--img{ width:450px; text-align: center;}
+        }
+    }
 /*END slider*/
 /*garage*/
     .garage{
@@ -354,7 +375,6 @@ input, textarea{
         .button span{ width: 100%; height: 60px; padding: 0 20px;}
     }
     .form_row{ width: 100%; display: flex; justify-content: flex-start; align-items: center;}
-
     .form_input{padding: 0 10px; width: 100%; margin-bottom: 19px; position: relative;
         &.form_twocol{ width: 50%;}
         input{border: 1px solid  rgb(235, 235, 235); border-radius: 5px; background-image: -moz-linear-gradient( 90deg, rgb(248,248,248) 0%, rgb(239,239,239) 100%); background-image: -webkit-linear-gradient( 90deg, rgb(248,248,248) 0%, rgb(239,239,239) 100%); background-image: -ms-linear-gradient( 90deg, rgb(248,248,248) 0%, rgb(239,239,239) 100%); height: 40px; line-height: 40px; width: 100%; padding-left: 12px;
