@@ -1,10 +1,67 @@
 <!-- FOOTER -->
 <div class="footer_placeholder"></div>
 <footer class="footer">
+    <div class="footer__wrap">
+        <div class="footer__left">
+            <div class="footer__logo">
+                <div class="footer__img"><img src="images/footlogo.png" alt=""></div>
+                <div class="footer__txt">
+                    <p><b>Телефон:</b><a href="tel:8 499 372-06-82"> 8 499 372-06-82</a></p>
+                    <p><b> Почта:</b><a href="mailto:sales@stroy-frost.ru"> sales@stroy-frost.ru</a></p>
+                    <p><b>Адрес:</b> МО, г. Фрязино, ул. Пионерская,
+                        дом 4.  Бизнес центр “Союз”, офис 510</p>
+                    <p><img src="images/marker.png" alt=""><a href="#">карта проезда на Яндекс-картах</a></p>
+                </div>
 
+            </div>
+            <div class="footer__blog">
+                <h5>Самые интересные статьи из блога:</h5>
+                <p><a href="#" target="_blank">Смотровая яма и погреб</a></p>
+                <p><a href="#" target="_blank">Холодильный склад из сэндвич-панелей</a></p>
+                <p><a href="#" target="_blank">Как обшить гараж сэндвич панелями самому</a></p>
+                <p><a href="#" target="_blank">Как правильно сделать дымоход в гараже</a></p>
+                <p><a href="#" target="_blank">Как построить быстро без ущерба качеству</a></p>
+
+
+            </div>
+            <div class="footer__socials">
+                <a href="#" target="_blank" class="soc_ic soc_ic--vk"><img src="images/vk.png" alt=""></a>
+                <a href="#" target="_blank" class="soc_ic soc_ic--fb"><img src="images/fb.png" alt=""></a>
+                <a href="#" target="_blank" class="soc_ic soc_ic--yt"><img src="images/yt.png" alt=""></a>
+                <a href="#" target="_blank" class="soc_ic soc_ic--ig"><img src="images/ig.png" alt=""></a>
+            </div>
+        </div>
+        <div class="footer__right">
+            <p>Спроектировано и реализовано</p>
+            <p><a href="#" target="_blank"> True Digital Agency</a> и <a href="#" target="_blank">Лидмашиной</a></p>
+        </div>
+    </div>
 </footer>
 <!-- FOOTER -->
-
+<script>
+    var imageMarker = 'images/marker.png'; //второстепеніе маркеры
+    var zoom= 8; //масштаб карты
+    var cordX= 55.694995; // координаты центра
+    var cordY = 37.422376;
+    var googleText = "центральный офис";
+    var markers = [
+        {
+            cordX: 55.794333,
+            cordY: 37.822122,
+            googleText : "гараж1"
+        },
+        {
+            cordX: 55.495333,
+            cordY: 37.933122,
+            googleText : "гараж2"
+        },
+        {
+            cordX: 55.194333,
+            cordY: 37.255122,
+            googleText : "гараж3"
+        }
+    ]
+</script>
 <link rel="stylesheet" href="css/jquery.fancybox.min.css">
 <link rel="stylesheet" href="css/formstyler.css">
 <link rel="stylesheet" href="css/normalize.css">
@@ -14,9 +71,10 @@
 <!-- SCRIPTS -->
 <script        src="https://code.jquery.com/jquery-3.1.1.min.js"        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="        crossorigin="anonymous"></script>
 <script type="text/javascript" src="js/validate_script.js" ></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4iiu69HGNYjeWowMnGtdghML_vNg5M_Y"></script>
 <!-- build:js -->
 <script type="text/javascript" src="js/plagins/device.js" ></script>
-<script type="text/javascript" src="js/plagins/object-fit-cover" ></script>
+<script type="text/javascript" src="js/plagins/object-fit-cover.js" ></script>
 <script type="text/javascript" src="js/plagins/jquery.fancybox.min.js" ></script>
 <script type="text/javascript" src="js/plagins/jquery.formstyler.min.js" ></script>
 <script type="text/javascript" src="js/plagins/jquery.validate.min.js" ></script>

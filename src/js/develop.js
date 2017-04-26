@@ -248,8 +248,10 @@ function colorPickInputEvent(){
 }
 function accordeon(){
     $('.accordeon__dropdown').eq(0).stop().slideDown();
+    $('.accordeon__dropdown').eq(0).prev('h5').addClass('active');
     $('.accordeon__left h5').click(function () {
         if($(this).hasClass('active')){
+            $(this).removeClass('active');
             $(this).next('.accordeon__dropdown').stop().slideUp();
         }else{
             $('.accordeon__left h5').removeClass('active');
@@ -270,6 +272,102 @@ function feedbacks(){
         centerMode: true
     });
 }
+function googleMap(mapWrap){
+    function initialize() {
+        var myLatlng = new google.maps.LatLng(cordX,cordY);
+        var myOptions = {
+            zoom: zoom,
+            center: myLatlng,
+            scrollwheel: false,
+            disableDefaultUI: true, //без управляющих елементов
+            mapTypeId: google.maps.MapTypeId.ROADMAP, // SATELLITE - снимки со спутника,
+            zoomControlOptions: {
+                position: google.maps.ControlPosition.LEFT_BOTTOM // позиция слева внизу для упр елементов
+            }
+        }
+        var map = new google.maps.Map(document.getElementById(mapWrap), myOptions);
+
+        var contentString = '<div class="marker-test">'+googleText+'</div>';
+        var infowindow = new google.maps.InfoWindow({
+            content: contentString
+        });
+          // иконка картинкой
+
+        var marker = new google.maps.Marker({
+            position: myLatlng,
+            map: map,
+            animation: google.maps.Animation.DROP // анимация при загрузке карты
+        });
+        for (var j =0; j < markers.length; j++) {
+            addMarker(j);
+        }
+        function addMarker(i) {
+            setTimeout(function() {
+                var coords = new google.maps.LatLng(markers[i].cordX,markers[i].cordY);
+                var string = '<div class="marker-test">'+markers[i].googleText+'</div>';
+                var info = new google.maps.InfoWindow({
+                    content: string
+                });
+                var newMarker = new google.maps.Marker({
+                    position: coords,
+                    map: map,
+                    icon: imageMarker,
+                    animation: google.maps.Animation.DROP // анимация при загрузке карты
+                });
+                newMarker.addListener('click', function() {
+                    info.open(map, newMarker);
+                });
+            }, i * 200);
+        }
+        /*анимация при клике на маркер*/
+        marker.addListener('click', toggleBounce);
+        function toggleBounce() {
+            if (marker.getAnimation() !== null) {
+                marker.setAnimation(null);
+            } else {
+                marker.setAnimation(google.maps.Animation.BOUNCE);
+            }
+        }
+        /*/анимация при клике на маркер*/
+
+        /*По клику открываеться инфоблок*/
+        google.maps.event.addListener(marker, 'click', function() {
+            infowindow.open(map,marker);
+        });
+
+    }
+    initialize();
+}
+function seemoreServices(){
+    var butt = $('.seemore-button span');
+    var items = $('.services__row-wrap')
+    items.eq(0).stop().slideDown();
+    items.eq(0).addClass('showed');
+    butt.click(function () {
+        if(butt.hasClass('hide')){
+            butt.text('Показать еще');
+            butt.removeClass('hide');
+            $('.services__row-wrap:not(:first-child)').removeClass('showed');
+            $('.services__row-wrap:not(:first-child)').stop().slideUp();
+        }else{
+            var last;
+            items.each(function () {
+                if($(this).hasClass('showed')) last = $(this);
+            });
+            var next = last.next();
+            next.stop().slideDown();
+            next.addClass('showed');
+            if(last.index() == (items.length - 2)){
+                butt.text('Скрыть');
+                butt.addClass('hide');
+            };
+        }
+
+
+    });
+
+
+}
 $(document).ready(function () {
     tabsCheck();
     toggleActive();
@@ -285,4 +383,6 @@ $(document).ready(function () {
     garageScrollText();
     accordeon();
     feedbacks();
+    googleMap('map');
+    seemoreServices();
 })

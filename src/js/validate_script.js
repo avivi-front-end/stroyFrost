@@ -153,5 +153,7 @@ function Maskedinput(){
 $(document).ready(function(){
    validate('.constructor-validate', {submitFunction:validationCall});
    validate('.contact-form', {submitFunction:validationCall});
+   validate('.map-validation', {submitFunction:validationCall});
+   validate('.subscribe-validate', {submitFunction:validationCall});
    Maskedinput();
 });
