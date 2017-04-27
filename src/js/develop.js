@@ -262,8 +262,16 @@ function accordeon(){
     });
 }
 function feedbacks(){
-   var slider = $('.feedbacks__slider');
-    slider.slick({
+    var slider1 = $('.feedbacks--mobile .feedbacks__slider');
+    slider1.slick({
+        dots:false,
+        arrows:true,
+        infinity:false,
+        speed: 300,
+        slidesToShow: 1
+    });
+    var slider2 = $('.feedbacks--desctop .feedbacks__slider');
+    slider2.slick({
         dots:false,
         arrows:true,
         infinity:true,
@@ -365,10 +373,70 @@ function seemoreServices(){
 
 
     });
+}
+function technoSliderInit() {
+    var slider = $('.techno');
+    slider.on('init', function(slick){
+        var current = $('.slick-current').attr('data-slide');
+        $('.slider__tabs li[data-slide='+current+']').addClass('active');
+        checkTabsTechno();
+    });
+    slider.slick({
+        dots:false,
+        arrows:true,
+        infinity:true,
+        speed: 300,
+        slidesToShow: 1
+    });
 
+    slider.on('afterChange', function(){
+        $('.slider__tabs li').removeClass('active');
+        $('.slider__tab').removeClass('active');
+        $('.slider__dropdown').stop().slideUp();
+        var current = $('.slick-current').attr('data-slide');
+        $('.slider__tabs li[data-slide='+current+']').addClass('active');
+        checkTabsTechno();
+    });
+    clickOnTechnoTabs();
+}
+function clickOnTechnoTabs(){
+    $('.slider__tabs li').click(function(){
+        if(!$(this).hasClass('active')){
+            $('.slider__tabs li').removeClass('active');
+            $('.slider__tab').removeClass('active');
+            $('.slider__dropdown').stop().slideUp();
+            $(this).addClass('active');
+            var ind = parseInt($(this).attr('data-slide'));
+            $(this).closest('.slider__tab').addClass('active');
+            $(this).closest('.slider__tab').find('.slider__dropdown').stop().slideDown();
+            $('.techno').slick('slickGoTo',ind-1);
+        }
+    });
 
 }
+function checkTabsTechno(){
+    $('.slider__tabs li').each(function () {
+        if($(this).hasClass('active')){
+            $(this).closest('.slider__tab').addClass('active');
+            $(this).closest('.slider__tab').find('.slider__dropdown').stop().slideDown();
+        }
+    });
+}
+function butter(){
+    var butt = $('.butter');
+    var cont = $('.header__nav ul');
+    if($('.butter').css('display') == "block") cont.stop().slideUp();
+    butt.click(function () {
+        $(this).toggleClass('active');
+        if($(this).hasClass('active')){
+            cont.stop().slideDown();
+        }else{
+            cont.stop().slideUp();
+        }
+    });
+}
 $(document).ready(function () {
+    butter();
     tabsCheck();
     toggleActive();
     tabindex();
@@ -385,4 +453,5 @@ $(document).ready(function () {
     feedbacks();
     googleMap('map');
     seemoreServices();
+    technoSliderInit();
 })

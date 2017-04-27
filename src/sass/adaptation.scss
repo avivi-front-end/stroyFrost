@@ -1,0 +1,123 @@
+@media screen and (max-width: 992px){
+  /*header*/
+    .butter{ display: block;}
+    .header__nav ul{ position: absolute; width: 100%; top: 70px; left: 0;flex-direction: column;background: #fff;padding: 15px;}
+    .header__nav li{ font-size: 18px; margin-bottom: 5px;}
+    .header__left{ width: 180px;}
+  /*END header*/
+  /*text*/
+      body{ font-size: 16px;}
+    h2{ font-size: 40px;}
+    h3{ font-size: 22px;}
+    .button span{ width: 260px; height: 60px; font-size: 18px;}
+    .call__banner .button span{ height: 60px;}
+    .map__item .button span,
+    .constructor__left .button span{ width: 260px; height: 60px;}
+  /*END text*/
+  /*topblock*/
+    .top-block__cols{flex-wrap: wrap;}
+    .top-block__item{ width: 50%;}
+    .top-block { background-position: 50% -113px;}
+    .top-block h3{ max-width: 510px;}
+  /*END topblock*/
+  /*third*/
+    .third__tr{ min-width: 900px;}
+    .third__table{overflow-x: scroll;}
+  /*END third*/
+    .slider{ display: none;}
+  /*constructor*/
+    .constructor__col{ width: 100%;}
+    .constructor__options{ width: 230px;}
+    .constructor__img{    width: calc(100% - 230px);}
+    .constructor__form{ flex-direction: column-reverse; padding:30px 10px;}
+    .constructor__left h4,
+    .constructor__left p{ display: none;}
+    .constructor__left--mobile{ display: block; width: 100%;
+      h4,p{ display: block;}
+      h4{ font-size: 22px;}
+    }
+    .constructor__right{ width: 100%;}
+    .constructor__left{ width: 100%; text-align: center;}
+    .constructor__left .button{ margin-top: 0;}
+  /*END constructor*/
+  /*build*/
+    .build__item{ width: 50%; text-align: center; padding: 0 8px;}
+    .build__content{flex-wrap: wrap;}
+  /*END build*/
+  /*accordeon*/
+    .accordeon__wrap{flex-wrap: wrap;}
+    .accordeon__left{ width: 100%;}
+    .accordeon__right{ width: 100%;}
+    .accordeon__info { margin: 4px 15px 27px; display: inline-block; }
+    .accordeon__form { text-align: center;padding: 22px 19px 10px;}
+    .accordeon__form label{ justify-content: center;}
+    .accordeon__left h5{ font-size: 16px;}
+  /*END accordeon*/
+  /*map*/
+    .map__wrap{flex-wrap: wrap; text-align: center;}
+    .map__item--left{ margin-bottom: 10px;}
+    .map__item--center .form_input{ width: 280px;}
+    .map__item--left,
+    .map__item--center,
+    .map__item--right{ width: 100%;}
+  /*END map*/
+  /*footer*/
+    .footer__wrap{flex-wrap: wrap; justify-content: center;}
+    .footer__left,
+    .footer__right{flex-wrap: wrap; width: 100%; text-align: center;}
+  /*END footer*/
+}
+@media screen and (max-width: 767px){
+  /*topblock*/
+    .top-block { background-position: 0 -113px;}
+    .top-block__cols{ padding-top: 30px;}
+    .top-block__item{ padding-right: 78px;}
+  /*END topblock*/
+  /*garage*/
+    .garage__img{ height: 400px;}
+  /*END garage*/
+  /*constructor*/
+    .constructor__case{flex-wrap: wrap;     padding: 0 0px 40px;}
+    .constructor__options{ width: 100%; padding-top: 0;}
+    .constructor__img{   width: 100%;}
+    .constructor__col{ width: 50%;}
+  /*END constructor*/
+  .services__row{flex-wrap: wrap;}
+  .services__item{ width: 100%; text-align: center; margin-bottom: 15px;}
+  /*footer*/
+    .footer__logo{ width: 100%;}
+    .footer__blog{ width: 100%;}
+    .footer__socials{ width: 100%; flex-direction: row; justify-content: space-around;}
+    .footer__txt{ padding-left: 0;}
+  /*END footer*/
+}
+@media screen and (max-width:666px){
+  /*topblock*/
+    .top-block__item{ padding-right: 5px;}
+  /*END topblock*/
+  /*build*/
+    .build__item{ width: 100%;}
+  /*END build*/
+  .feedbacks.feedbacks--desctop{ display: none;}
+  .feedbacks.feedbacks--mobile{ display: block;}
+
+}
+@media screen and (max-width: 480px){
+  /*text*/
+  body{ font-size: 14px;}
+  h2{ font-size: 24px;}
+  h3{ font-size: 18px;}
+  .accordeon__left h5{ font-size: 14px;}
+  /*END text*/
+  /*header*/
+  header {    padding-top: 110px;}
+    .header__wraper{flex-direction: column; height: auto; padding: 9px 0;}
+    .header__tel{ width: 100%; text-align: center;}
+    .butter{ left: 0; top:calc(50% - 20px);}
+    .header__nav ul{ top: 100%;}
+  /*END header*/
+  /*constructor */
+    .form_input.form_twocol{ width: 100%;}
+    .form_row{flex-wrap: wrap;}
+  /*END constructor */
+}

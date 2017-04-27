@@ -74,7 +74,7 @@ input, textarea{
 /*End Layout*/
 /*fonts*/
 @mixin font-face($style-name, $file:$style-name, $weight:normal, $style:normal) {
-    $filepath: "/font/" + $file;
+    $filepath: "../font/" + $file;
     @font-face {
         font-family: quote($style-name);
         src: url($filepath + ".eot");
@@ -134,7 +134,17 @@ input, textarea{
             a{ font-size: 18px; font-weight: 700; color: #3b3273; text-decoration: none;}
         }
     }
-    .butter{}
+    .butter{ display: none; width: 40px; height: 40px;  position: absolute; left:calc(50% - 20px); top: 15px;
+
+        span{ display: block; width: 100%; height: 4px; background-color: #3b3273;transition:all 300ms; position: absolute; top: 5px; left: 0;}
+        span:nth-child(2){ top: 19px;}
+        span:nth-child(3){ top: 33px;}
+        &.active{
+            span:first-child{transform:rotate(45deg); top: 50%;}
+            span:nth-child(2){ display: none;}
+            span:last-child{transform:rotate(-45deg); top: 50%;}
+        }
+    }
 /*END Header*/
 /*top block*/
     .top-block{ background-image: url(../images/topbg.jpg); background-position: 50% -28px; background-repeat: no-repeat;
@@ -206,13 +216,15 @@ input, textarea{
 /*END call*/
 /*slider*/
     .slider{ text-align: center; padding-top: 67px;
-        h2{ margin: 0;}
-        &__tabs{ font-size: 0; padding-top: 9px;}
+        h2{ margin: 49px 0 0;}
+        &__tabs{ font-size: 0; padding-top: 9px; margin-bottom: 146px;}
         &__tab{height: 38px; border:1px solid  rgb(235, 235, 235); font-size: 18px; padding: 0 16px; background-image: -moz-linear-gradient( 90deg, rgb(248,248,248) 0%, rgb(239,239,239) 100%); background-image: -webkit-linear-gradient( 90deg, rgb(248,248,248) 0%, rgb(239,239,239) 100%); background-image: -ms-linear-gradient( 90deg, rgb(248,248,248) 0%, rgb(239,239,239) 100%); display: inline-flex; justify-content: center; align-items: center; position: relative; font-weight: 500; color: #00b95e;
             &:not(:last-child){ border-right:none;}
             &:last-child{ border-bottom-right-radius:19px; border-top-right-radius:19px;}
             &:first-child{border-bottom-left-radius: 19px; border-top-left-radius: 19px;}
-            &.active{ color: #fff; background-color: #3b3273; background-image: none;}
+            &.active{ color: #fff; background-color: #3b3273; background-image: none;
+                .slider__tabindex:hover{ color: #fff;}
+            }
 
         }
         &__tabindex{
@@ -224,6 +236,15 @@ input, textarea{
                 &.active{ color: #000;}
             }
         }
+        .slick-prev, .slick-next{ width: 62px; height: 62px; border-radius:50%; border:2px solid #16ba6a; display: block; font-size:inherit; z-index: 500; top: 172px;
+            &:before{ content: ''; position: absolute; width: 8px; height: 8px; border-top:2px solid #16ba6a; border-right:2px solid #16ba6a; top: 25px;}
+        }
+        .slick-prev{ left: 0px;
+            &:before{transform:rotate(-135deg); left:27px;}
+        }
+        .slick-next{ right: 0px;
+            &:before{transform:rotate(45deg); left: 24px;}
+        }
     }
     .dotted{ margin-bottom: 32px;
         &_row{display: flex; justify-content: space-between; align-items: stretch; margin-bottom: 6px;}
@@ -233,23 +254,37 @@ input, textarea{
         }
         &_right{ display: flex; justify-content: flex-start; align-items: flex-end; width: 150px;}
     }
-    .techno{ max-width:1130px; width: 100%; margin: 0 auto; padding: 0 10px;
+    .techno{ max-width:1234px; width: 100%; margin: 0 auto; padding: 0 62px;
         &__wrap{}
         &__wrap{}
-        &__slide{ display: flex; justify-content: space-between; align-items: flex-start; font-weight: 400; font-size: 14px;  text-align: left;
+        &__slide{ display: flex; justify-content: space-between; align-items: stretch; font-weight: 400; font-size: 14px;  text-align: left;
             ul{ margin: 0 0 32px;padding: 0 0 0 17px;}
             p{ margin: 0 0 4px;}
+            a{ color: #000; text-decoration: none; font-weight: 500;
+                &:hover{color: #3b3273;}
+            }
             li{ margin-bottom: 6px;}
-
+            &--rows{ flex-direction: column; justify-content: flex-start; align-items: center;}
+        }
+        &__row{ display: flex; justify-content: space-between; width: 100%; margin-bottom: 50px;
+            &:last-child{ margin-bottom: 0;}
         }
         &__col{ width: 325px; padding: 0 5px;
             &--img{ width:450px; text-align: center;}
+        }
+        &__col2{ width: 310px; padding: 0 5px; text-align: center; display: flex; justify-content: flex-end; flex-direction: column; align-items: center;
+            img{ margin-bottom: 43px;}
+
+        }
+        &__col3{ width: 630px;  padding: 0 5px;
+            &--imgbox{ width: 100%; height: 481px; background-color: #e5e5e5;}
+            &--txt{ width: 360px; display: flex; justify-content: center;  padding: 0 5px; align-items: flex-start; flex-direction: column; text-align: left;}
         }
     }
 /*END slider*/
 /*garage*/
     .garage{
-        h2{ text-align: center;}
+        h2{ text-align: center;    margin: 87px 0 36px;}
         &__img{ height: 700px; overflow: hidden;
             img{ width: 100%; object-fit: cover; height: 100%;}
         }
@@ -337,6 +372,7 @@ input, textarea{
         }
         &__form{ display: flex; justify-content: space-between; align-items: flex-start; background-color: #fcfcfe; width: 100%;  padding: 33px 40px 35px 50px;}
         &__left{ width:371px; text-align: left;
+            &--mobile{ display: none;}
             h4{ margin: 0 0 5px; font-size: 30px;}
             p{ margin: 0 0 4px;}
             .button{ margin-top: 20px;
@@ -445,7 +481,7 @@ input, textarea{
     .feedbacks{
         h2{ text-align: center;margin: 99px 0 47px;}
         &__slider-wrap{ width: 100%; overflow: hidden; position: relative;}
-        &__slider{ width: 1920px; margin-left: 50%; transform:translateX(-50%); }
+        &__slider{ width: 1920px; margin-left: 50%; transform:translateX(-50%);}
         &__slide-wrap{ position: relative;
             &.slick-current{ z-index: 200;
                 .feedbacks__slide{width: 584px; padding-top: 0; pointer-events: all;
@@ -469,6 +505,21 @@ input, textarea{
         }
         .slick-next{ right: 35px;
             &:before{transform:rotate(45deg); left: 24px;}
+        }
+
+        &.feedbacks--desctop{ display: block;}
+        &.feedbacks--mobile{ display: none;
+            .feedbacks__slider{ width: 100%; margin-left: 0; transform:translateX(0);
+                    .feedbacks__slide,
+                    .feedbacks__slide-wrap.slick-current .feedbacks__slide{ width: 100%; padding-top: 0;}
+            }
+            .slick-prev, .slick-next{ top:95%; width: 30px; height: 30px;}
+            .slick-prev{ left: 5px;
+                &:before{transform:rotate(-135deg); left:11px; top: 9px;}
+            }
+            .slick-next{ right:5px;
+                &:before{transform:rotate(45deg); left: 8px; top: 9px;}
+            }
         }
     }
 /*END feedbacks*/
