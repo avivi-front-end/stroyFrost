@@ -108,7 +108,7 @@ input, textarea{
         }
     }
 /*end TEXT*/
-.button{    background-image: -moz-linear-gradient(90deg, #067b47 13%, #42ea61 90%);    background-image: -webkit-linear-gradient(90deg, #067b47 13%, #42ea61 90%);    background-image: -ms-linear-gradient(90deg, #067b47 13%, #42ea61 90%);    padding: 4px;    display: inline-block;    border-radius: 10px;    text-decoration: none;
+.button{    background-image: -moz-linear-gradient(90deg, #067b47 13%, #42ea61 90%);    background-image: -webkit-linear-gradient(90deg, #067b47 13%, #42ea61 90%);    background-image: -ms-linear-gradient(90deg, #067b47 13%, #42ea61 90%);    padding: 4px;    display: inline-block;    border-radius: 10px;    text-decoration: none; border:none;
     span{border-radius: 5px; background-size: 100%; background-position: 50% 0px; background-image: -moz-linear-gradient( 90deg, rgb(11,172,100) 13%,rgb(71,205,95) 90%); background-image: -webkit-linear-gradient( 90deg, rgb(11,172,100) 13%,rgb(71,205,95) 90%); background-image: -ms-linear-gradient( 90deg, rgb(11,172,100) 13%,rgb(71,205,95) 90%); display: flex; justify-content: center; align-items: center; font-size: 30.436px; font-family: "PFCENTR"; color: rgb(255, 255, 255); font-weight: bold; line-height: 0.821; text-shadow: 0px 1px 0px rgba(0, 185, 94, 0.004); width: 402px; height: 100px;    }
     &:hover{
             span{ background-image: -moz-linear-gradient( 90deg, rgb(71,205,95) 13%,rgb(11,172,100) 90%); background-image: -webkit-linear-gradient( 90deg, rgb(71,205,95) 13%,rgb(11,172,100) 90%); background-image: -ms-linear-gradient( 90deg, rgb(71,205,95) 13%,rgb(11,172,100) 90%);}
@@ -116,10 +116,11 @@ input, textarea{
 }
 
 /*Header*/
+    .green-line{ position: absolute; height: 3px; left: 0; top:100%; background-color: #00b95e; width: 1%;}
     header{ padding-top: 70px; width: 100%;}
     .header{ width: 100%; top: 0; left: 0; right: 0; z-index: 100; position: fixed; background-color: #fff;
         &:before{ position: absolute; content: ''; height: 3px; left: 0; top:100%; right: 0; box-shadow: 0px 5px 15px 0px rgba(59, 50, 115, 0.15); background-color: #3b3273; width: 100%;}
-        &:after{ position: absolute; content: ''; height: 3px; left: 0; top:100%; background-color: #00b95e; width: 39%;}
+
         &__wraper{ background-color: #fff; position: relative; z-index: 200; width: 100%; display: flex; height: 67px; justify-content: space-between; align-items: center;}
         &__left{ display: flex; justify-content: space-between; align-items: center; width: 814px; padding-top: 7px;}
         &__logo{}
@@ -186,7 +187,7 @@ input, textarea{
         h3{ text-align: center; margin-bottom: 41px; line-height: 1.45;}
         &__tab{ display: inline-block; border:2px dotted #f4f2ff; border-radius: 6px; cursor: pointer; padding: 0 6px;
             img{ vertical-align: middle; margin-right: 5px;}
-            &:hover,
+            &:hover{border:2px solid #00b95e;}
             &.active{ background-color: #f4f2ff; border-style: solid;}
         }
         &__table{ max-width: 910px; width: 100%; margin: 0 auto;}
@@ -194,9 +195,8 @@ input, textarea{
             &:first-child{ border-bottom:1px solid  #e5e5e5;}
             &:hover{ background-color: #f4f2ff;}
         }
-        &__td{ display: flex; justify-content: flex-start; align-items: center; padding-left: 9px; display: none; width: 220px;
-            &:nth-child(1),
-            &:nth-child(2){ display: flex;}
+        &__td{ display: flex; justify-content: flex-start; align-items: center; padding-left: 9px; width: 220px;
+
             &:first-child{width: 440px;}
 
         }
@@ -236,14 +236,14 @@ input, textarea{
                 &.active{ color: #000;}
             }
         }
-        .slick-prev, .slick-next{ width: 62px; height: 62px; border-radius:50%; border:2px solid #16ba6a; display: block; font-size:inherit; z-index: 500; top: 172px;
-            &:before{ content: ''; position: absolute; width: 8px; height: 8px; border-top:2px solid #16ba6a; border-right:2px solid #16ba6a; top: 25px;}
+        .slick-prev, .slick-next{ width: 40px; height: 40px; border-radius:50%; border:2px solid #16ba6a; display: block; font-size:inherit; z-index: 500; top: 172px;
+            &:before{ content: ''; position: absolute; width: 8px; height: 8px; border-top:2px solid #16ba6a; border-right:2px solid #16ba6a; top: 15px;}
         }
         .slick-prev{ left: 0px;
-            &:before{transform:rotate(-135deg); left:27px;}
+            &:before{transform:rotate(-135deg); left:15px;}
         }
         .slick-next{ right: 0px;
-            &:before{transform:rotate(45deg); left: 24px;}
+            &:before{transform:rotate(45deg); left: 14px;}
         }
     }
     .dotted{ margin-bottom: 32px;
@@ -351,7 +351,7 @@ input, textarea{
         h2{ text-align: center; margin-top: 121px;}
         &__content{ position: relative;}
         &__banner{ border-radius: 20px; background-color: #fff;box-shadow: 0px 10px 20px 0px rgba(24, 22, 92, 0.2);max-width: 1000px;z-index: 99; text-align: center; width: 100%; position: relative; margin: 0 auto; padding: 28px 0 0;}
-        &__case{  position: relative; display: flex; justify-content: flex-start; align-items: flex-start; padding: 0 30px 100px;}
+        &__case{  position: relative; display: flex; justify-content: flex-start; align-items: flex-start; padding: 0 30px 30px;}
         &__options{ display: flex; justify-content: flex-start; align-items: flex-start; flex-wrap: wrap; width: 410px; padding-top: 44px;}
         &__col{ width: 50%; padding-left: 10px; text-align: left; font-size: 14px; font-weight: 400; margin-bottom: 24px;
             h5{ margin: 0 0 5px; font-size: 14px; padding-left: 10px;}
@@ -370,7 +370,9 @@ input, textarea{
         &__img{width: calc(100% - 410px); position: relative;
             img:not(:first-child){ position: absolute; top: 0; left: 0; right: 0; bottom: 0;}
         }
-        &__form{ display: flex; justify-content: space-between; align-items: flex-start; background-color: #fcfcfe; width: 100%;  padding: 33px 40px 35px 50px;}
+        &__form{ display: flex; justify-content: space-between; align-items: flex-start;background-image: -moz-linear-gradient( -90deg, rgb(247,247,253) 0%, rgb(251,251,254) 19%, rgb(255,255,255) 100%);
+            background-image: -webkit-linear-gradient( -90deg, rgb(247,247,253) 0%, rgb(251,251,254) 19%, rgb(255,255,255) 100%);
+            background-image: -ms-linear-gradient( -90deg, rgb(247,247,253) 0%, rgb(251,251,254) 19%, rgb(255,255,255) 100%); width: 100%;  padding: 33px 40px 35px 50px;}
         &__left{ width:371px; text-align: left;
             &--mobile{ display: none;}
             h4{ margin: 0 0 5px; font-size: 30px;}
@@ -389,7 +391,7 @@ input, textarea{
             &:before{transform:translate(-50%, -50%) rotate(-45deg);}
         }
         &__ttl{border-bottom: 1px solid transparent; cursor: pointer;
-            span{border: 1px solid rgb(235, 235, 235);  border-radius: 50%; width: 14px; height: 14px; display: inline-block; vertical-align: middle; margin-right: 5px;}
+            span{border: 1px solid rgb(235, 235, 235);  border-radius: 5px; width: 34px; height: 14px; display: inline-block; vertical-align: middle; margin-right: 5px;}
             &:hover{color:#00b95e;}
         }
         &__list{ display: none; padding-top: 7px;
@@ -497,14 +499,14 @@ input, textarea{
             iframe{ position: absolute;  top: 0;  left: 0;  width: 100%; height: 100%;}
         }
         &__txt{ text-align: center; display: none; padding-top: 16px;}
-        .slick-prev, .slick-next{ width: 62px; height: 62px; border-radius:50%; border:2px solid #16ba6a; display: block; font-size:inherit; z-index: 500;
-            &:before{ content: ''; position: absolute; width: 8px; height: 8px; border-top:2px solid #16ba6a; border-right:2px solid #16ba6a; top: 25px;}
+        .slick-prev, .slick-next{ width: 40px; height: 40px; border-radius:50%; border:2px solid #16ba6a; display: block; font-size:inherit; z-index: 500;
+            &:before{ content: ''; position: absolute; width: 8px; height: 8px; border-top:2px solid #16ba6a; border-right:2px solid #16ba6a; top: 15px;}
         }
         .slick-prev{ left: 35px;
-            &:before{transform:rotate(-135deg); left:27px;}
+            &:before{transform:rotate(-135deg); left:15px;}
         }
         .slick-next{ right: 35px;
-            &:before{transform:rotate(45deg); left: 24px;}
+            &:before{transform:rotate(45deg); left: 14px;}
         }
 
         &.feedbacks--desctop{ display: block;}
@@ -613,3 +615,5 @@ input, textarea{
        &:hover{box-shadow: 0 0 6px 3px rgba(0,0,0,0.3);}
     }
 /*END footer*/
+#call_success,
+#call-popup{border-radius: 20px; background-color: rgb(251, 250, 255); padding: 40px 50px;}

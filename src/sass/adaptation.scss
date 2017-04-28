@@ -2,7 +2,9 @@
   /*header*/
     .butter{ display: block;}
     .header__nav ul{ position: absolute; width: 100%; top: 70px; left: 0;flex-direction: column;background: #fff;padding: 15px;}
-    .header__nav li{ font-size: 18px; margin-bottom: 5px;}
+    .header__nav li{ font-size: 18px; margin-bottom: 5px;
+      &:first-child{ display: none;}
+    }
     .header__left{ width: 180px;}
   /*END header*/
   /*text*/
@@ -121,3 +123,4 @@
     .form_row{flex-wrap: wrap;}
   /*END constructor */
 }
+.preloader{ display: none;}

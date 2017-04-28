@@ -2,13 +2,14 @@ function tabsCheck() {
     var tabs = $('.third__tab');
     if (tabs.length > 0) {
         if (!tabs.hasClass('active'))  tabs.eq(0).addClass('active');
-        var ind=2;
-
+        var ind=0;
         tabs.each(function () {
-            if($(this).hasClass('active')) ind = $(this).index()+2;
+            if($(this).hasClass('active')) ind = $(this).index()-1;
         });
-        $('.third__td:not(:nth-child(1)):not(:nth-child(2))').css('display','none');
-        $('.third__td:nth-child('+ind+')').css('display','flex');
+
+        console.log(ind);
+        $('.third__table').css('display','none');
+        $('.third__table').eq(ind).css('display','block');
     }
 }
 function toggleActive(){
@@ -287,11 +288,12 @@ function googleMap(mapWrap){
             zoom: zoom,
             center: myLatlng,
             scrollwheel: false,
+            draggable: false,
+            zoomControl: false,
+            disableDoubleClickZoom: true,
             disableDefaultUI: true, //без управляющих елементов
             mapTypeId: google.maps.MapTypeId.ROADMAP, // SATELLITE - снимки со спутника,
-            zoomControlOptions: {
-                position: google.maps.ControlPosition.LEFT_BOTTOM // позиция слева внизу для упр елементов
-            }
+
         }
         var map = new google.maps.Map(document.getElementById(mapWrap), myOptions);
 
@@ -435,6 +437,16 @@ function butter(){
         }
     });
 }
+function scrollProgress() {
+    var line = $('.green-line');
+    var total = $('body').height() - $(window).height();
+    var scroll = $(window).scrollTop();
+    var x = (scroll * 100)/total;
+    line.css('width',x+'%');
+}
+$(window).on('scroll',function () {
+    scrollProgress();
+});
 $(document).ready(function () {
     butter();
     tabsCheck();

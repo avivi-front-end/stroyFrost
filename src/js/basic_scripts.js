@@ -144,7 +144,7 @@ function goTo(){
         e.preventDefault();
         var href = $(this).attr('href');
         var target = $(href).offset().top-65;
-        $(scroller).animate({scrollTop:target},500);
+        $(scroller).animate({scrollTop:target},800);
     });
 }
 
