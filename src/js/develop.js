@@ -161,6 +161,18 @@ function closeColorpicker() {
         $('.colorpicker>li').removeClass('active');
         $(this).closest('li').addClass('active');
     });
+    $(window).click(function(e) {
+
+        var div= $('.colorpicker>li');
+        if (!div.is(event.target) && div.has(event.target).length === 0 ){
+            $('.colorpicker>li').removeClass('active');
+        }
+
+    });
+
+    $('#menucontainer').click(function(event){
+        event.stopPropagation();
+    });
 }
 function checkGate(){
     $('input[name=size]').on('change', function(){
@@ -246,6 +258,16 @@ function colorPickInputEvent(){
         $(this).closest('li.active').find('.colorpicker__ttl span').attr('style', color);
         initConstructorView();
     });
+}
+function colorInit() {
+    var color = $('input[name=wall-col]:checked + span').attr('style');
+    $('input[name=wall-col]').closest('.colorpicker__list').closest('li').find('.colorpicker__ttl span').attr('style', color);
+    var color2 = $('input[name=gate-col]:checked + span').attr('style');
+    $('input[name=gate-col]').closest('.colorpicker__list').closest('li').find('.colorpicker__ttl span').attr('style', color2);
+    var color3 = $('input[name=roof-col]:checked + span').attr('style');
+    $('input[name=roof-col]').closest('.colorpicker__list').closest('li').find('.colorpicker__ttl span').attr('style', color3);
+    var color4 = $('input[name=elem-col]:checked + span').attr('style');
+    $('input[name=elem-col]').closest('.colorpicker__list').closest('li').find('.colorpicker__ttl span').attr('style', color4);
 }
 function accordeon(){
     $('.accordeon__dropdown').eq(0).stop().slideDown();
@@ -350,27 +372,15 @@ function googleMap(mapWrap){
 }
 function seemoreServices(){
     var butt = $('.seemore-button span');
-    var items = $('.services__row-wrap')
-    items.eq(0).stop().slideDown();
-    items.eq(0).addClass('showed');
     butt.click(function () {
         if(butt.hasClass('hide')){
             butt.text('Показать еще');
             butt.removeClass('hide');
-            $('.services__row-wrap:not(:first-child)').removeClass('showed');
-            $('.services__row-wrap:not(:first-child)').stop().slideUp();
+            $('.services__row-wrap:not(.showed)').stop().slideUp();
         }else{
-            var last;
-            items.each(function () {
-                if($(this).hasClass('showed')) last = $(this);
-            });
-            var next = last.next();
-            next.stop().slideDown();
-            next.addClass('showed');
-            if(last.index() == (items.length - 2)){
-                butt.text('Скрыть');
-                butt.addClass('hide');
-            };
+            $('.services__row-wrap:not(.showed)').stop().slideDown();
+            butt.text('Скрыть');
+            butt.addClass('hide');
         }
 
 
@@ -444,9 +454,21 @@ function scrollProgress() {
     var x = (scroll * 100)/total;
     line.css('width',x+'%');
 }
+function butterResize() {
+    var butt = $('.butter');
+    if(butt.css('display') == 'block' && !butt.hasClass('active')){
+        butt.next('ul').css('display', 'none');
+    }else{
+        butt.next('ul').css('display', 'flex');
+    }
+}
+$(window).on('resize',function(){
+   butterResize();
+});
 $(window).on('scroll',function () {
     scrollProgress();
 });
+
 $(document).ready(function () {
     butter();
     tabsCheck();
@@ -466,4 +488,8 @@ $(document).ready(function () {
     googleMap('map');
     seemoreServices();
     technoSliderInit();
+    colorInit();
+    $('img').bind('contextmenu', function(e) {
+        return false;
+    });
 })

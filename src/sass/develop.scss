@@ -109,7 +109,7 @@ input, textarea{
     }
 /*end TEXT*/
 .button{    background-image: -moz-linear-gradient(90deg, #067b47 13%, #42ea61 90%);    background-image: -webkit-linear-gradient(90deg, #067b47 13%, #42ea61 90%);    background-image: -ms-linear-gradient(90deg, #067b47 13%, #42ea61 90%);    padding: 4px;    display: inline-block;    border-radius: 10px;    text-decoration: none; border:none;
-    span{border-radius: 5px; background-size: 100%; background-position: 50% 0px; background-image: -moz-linear-gradient( 90deg, rgb(11,172,100) 13%,rgb(71,205,95) 90%); background-image: -webkit-linear-gradient( 90deg, rgb(11,172,100) 13%,rgb(71,205,95) 90%); background-image: -ms-linear-gradient( 90deg, rgb(11,172,100) 13%,rgb(71,205,95) 90%); display: flex; justify-content: center; align-items: center; font-size: 30.436px; font-family: "PFCENTR"; color: rgb(255, 255, 255); font-weight: bold; line-height: 0.821; text-shadow: 0px 1px 0px rgba(0, 185, 94, 0.004); width: 402px; height: 100px;    }
+    span{border-radius: 5px; background-size: 100%; background-position: 50% 0px; background-image: -moz-linear-gradient( 90deg, rgb(11,172,100) 13%,rgb(71,205,95) 90%); background-image: -webkit-linear-gradient( 90deg, rgb(11,172,100) 13%,rgb(71,205,95) 90%); background-image: -ms-linear-gradient( 90deg, rgb(11,172,100) 13%,rgb(71,205,95) 90%); display: flex; justify-content: center; align-items: center; font-size: 24px; font-family: "PFCENTR"; color: rgb(255, 255, 255); font-weight: bold; line-height: 0.821; text-shadow: 0px 1px 0px rgba(0, 185, 94, 0.004); width: 320px; height: 80px;    }
     &:hover{
             span{ background-image: -moz-linear-gradient( 90deg, rgb(71,205,95) 13%,rgb(11,172,100) 90%); background-image: -webkit-linear-gradient( 90deg, rgb(71,205,95) 13%,rgb(11,172,100) 90%); background-image: -ms-linear-gradient( 90deg, rgb(71,205,95) 13%,rgb(11,172,100) 90%);}
     }
@@ -148,7 +148,7 @@ input, textarea{
     }
 /*END Header*/
 /*top block*/
-    .top-block{ background-image: url(../images/topbg.jpg); background-position: 50% -28px; background-repeat: no-repeat;
+    .top-block{ background-image: url(../images/topbg.jpg); background-position: 50% 141px; background-repeat: no-repeat;
         h2{ line-height: 1.1; max-width: 926px; margin: 48px 0 19px;}
         h3{    max-width: 619px;            margin: 19px 0 34px;}
         &__wrap{}
@@ -157,6 +157,7 @@ input, textarea{
         &__item{ width: 260px; margin-bottom: 25px; padding:0 5px;
             p{ margin: 4px 0;}
         }
+        &__gar{ display: none;}
     }
 /*END top block*/
 /*second*/
@@ -208,7 +209,7 @@ input, textarea{
             h4{ font-size: 30px; margin:11px 0;}
             p{ margin: 4px 0;}
             .button{ margin-top: 23px;
-                span{ height: 80px;}
+                span{ height: 64px;}
             }
         }
         &__bg{ height:calc(100% - 100px); top: 50px; left: 0; position: absolute; width: 100%; background-image: url(../images/callbg.jpg); background-position: 50%; background-size: cover;}
@@ -276,7 +277,9 @@ input, textarea{
             img{ margin-bottom: 43px;}
 
         }
-        &__col3{ width: 630px;  padding: 0 5px;
+        &__col3{ width: 630px;  padding: 0 5px; text-align: center;
+            img{max-height: 480px; margin: 0 auto;}
+            &--img-wrapp{max-height: 480px; width: 100%; text-align: center;}
             &--imgbox{ width: 100%; height: 481px; background-color: #e5e5e5;}
             &--txt{ width: 360px; display: flex; justify-content: center;  padding: 0 5px; align-items: flex-start; flex-direction: column; text-align: left;}
         }
@@ -378,7 +381,7 @@ input, textarea{
             h4{ margin: 0 0 5px; font-size: 30px;}
             p{ margin: 0 0 4px;}
             .button{ margin-top: 20px;
-                span{ width: 312px; height: 80px;}
+                span{ width: 250px; height: 64px;}
             }
         }
         &__right{ width: 520px; padding-top: 17px;}
@@ -465,7 +468,7 @@ input, textarea{
             label{ display: flex; justify-content: flex-start; align-items: center; margin-bottom: 10px;
                 img{ margin-right: 5px;}
             }
-            input{border:none; border-bottom:1px solid #ceced6; background-color: transparent; font-size: 12px; color: #ceced6; height: 22px;
+            input{border:none; border-bottom:1px solid #ceced6; background-color: transparent; font-size: 12px; color: #000; height: 22px;
                 &::-webkit-input-placeholder { font-size: 12px; color: #ceced6; font-style: italic; font-family:'UBUNTU'; font-weight: 300;}
                 &:-moz-placeholder { font-size: 12px; color: #ceced6; font-style: italic; font-family:'UBUNTU'; font-weight: 300;}
                 &::-moz-placeholder { font-size: 12px; color: #ceced6; font-style: italic; font-family:'UBUNTU'; font-weight: 300;}
@@ -539,7 +542,7 @@ input, textarea{
             h5{ margin: 0 0 11px; font-size: 18px;}
             p{ margin: 0;}
             input{ background: #fff;}
-            .button span{ width: 318px; height: 80px;}
+            .button span{ width: 250px; height: 64px;}
             &--left{ width: 428px;}
             &--center{ width: 280px; flex-direction: column;
                 .form_input{ margin-bottom: 8px; padding: 0;}
@@ -553,13 +556,15 @@ input, textarea{
     .services{ text-align: center; padding-bottom: 150px;
         h2{ color: #000; margin: 75px 0 0; }
         h3{ margin:12px 0 58px;}
-        &__wrap{ border-bottom:2px solid #00b95e; position: relative;}
-        &__row-wrap{ display: none;}
+        &__wrap{ border-bottom:2px solid #3b3273; position: relative;}
+        &__row-wrap:not(.showed){ display: none;}
         &__row{  justify-content: space-between; align-items: center; margin-bottom: 63px; display: flex;}
         &__item{ text-align: left; padding: 0 5px;
             &--small{ width: 215px;}
             &--half{ width: 410px;}
             &--big{ width: 860px;}
+            &--w25{ width: 230px;}
+            &--w50{ width: 520px;}
         }
         &__img{ margin-bottom: 11px;}
         &__txt{
@@ -568,8 +573,8 @@ input, textarea{
 
     }
     .seemore-button{ height: 60px; overflow: hidden; text-align: center; position: absolute; top: 100%; width: 100%;
-        span{ width:120px; height: 120px; border:2px solid #00b95e; border-radius: 50%; display: flex; justify-content: center; align-items: center; position: absolute; left: 50%; top: -60px; font-size: 12px; transform:translateX(-50%); padding-top: 50px; color: #3b3273; cursor: pointer;
-            &:hover{ background-color: #00b95e; color: #fff; }
+        span{ width:120px; height: 120px; border:2px solid #3b3273; border-radius: 50%; display: flex; justify-content: center; align-items: center; position: absolute; left: 50%; top: -60px; transform:translateX(-50%); padding-top: 50px; color: #3b3273; cursor: pointer; line-height: 1.1;
+            &:hover{ background-color: #00b95e; color: #fff;  border-color: #00b95e;}
         }
     }
 /*END services*/

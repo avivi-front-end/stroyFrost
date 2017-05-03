@@ -19,7 +19,7 @@
   /*topblock*/
     .top-block__cols{flex-wrap: wrap;}
     .top-block__item{ width: 50%;}
-    .top-block { background-position: 50% -113px;}
+    .top-block { background-position: 50% 45px;}
     .top-block h3{ max-width: 510px;}
   /*END topblock*/
   /*third*/
@@ -71,7 +71,7 @@
 }
 @media screen and (max-width: 767px){
   /*topblock*/
-    .top-block { background-position: 0 -113px;}
+    .top-block { background-position: 30px 45px;}
     .top-block__cols{ padding-top: 30px;}
     .top-block__item{ padding-right: 78px;}
   /*END topblock*/
@@ -95,6 +95,8 @@
 }
 @media screen and (max-width:666px){
   /*topblock*/
+    .top-block{ background-image: none;}
+    .top-block__gar{ display: block; margin-top: 50px; text-align: center;}
     .top-block__item{ padding-right: 5px;}
   /*END topblock*/
   /*build*/
