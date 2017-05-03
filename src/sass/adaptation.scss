@@ -92,6 +92,9 @@
     .footer__socials{ width: 100%; flex-direction: row; justify-content: space-around;}
     .footer__txt{ padding-left: 0;}
   /*END footer*/
+  .third__tr{ min-height: 26px; min-width: 650px; border-bottom: 1px solid #e5e5e5;}
+  .third__td:first-child{ width: 300px;}
+  .third__td{ padding-right: 5px; width: 175px;}
 }
 @media screen and (max-width:666px){
   /*topblock*/
@@ -124,5 +127,8 @@
     .form_input.form_twocol{ width: 100%;}
     .form_row{flex-wrap: wrap;}
   /*END constructor */
+  .third__tr{ min-height: 26px; min-width: 530px;}
+  .third__td:first-child{ width: 230px;}
+  .third__td{  width: 150px;}
 }
 .preloader{ display: none;}
